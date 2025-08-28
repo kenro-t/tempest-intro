@@ -1,0 +1,25 @@
+{
+    "name": "PHP Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/php:1-8.3",
+    "features": {
+        "docker-from-docker": {
+            "version": "latest"
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "felixfbecker.php-debug",
+                "streetsidesoftware.code-spell-checker",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root"
+}
