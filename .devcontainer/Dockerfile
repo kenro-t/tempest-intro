@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libicu-dev \            
     unzip \
+    openssh-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd zip intl pdo pdo_mysql
 
