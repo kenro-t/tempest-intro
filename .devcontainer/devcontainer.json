@@ -1,15 +1,17 @@
 {
-    "name": "PHP Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/php:1-8.3",
+    "service": "app",
+    "dockerComposeFile": "./docker-compose.yaml",
     "features": {
-        "docker-from-docker": {
-            "version": "latest"
-        }
-    },
+		"docker-from-docker": {
+			"version": "latest",
+			"moby": false
+		}
+	},
+    "workspaceFolder": "/app",
     "mounts": [
-        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
     ],
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "customizations": {
         "vscode": {
             "settings": {},
@@ -20,6 +22,4 @@
             ]
         }
     },
-    "workspaceFolder": "/workspace",
-    "remoteUser": "root"
 }
